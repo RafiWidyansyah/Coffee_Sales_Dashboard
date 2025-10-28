@@ -37,4 +37,18 @@ data = data[(data["transaction_date"] >= start_date) & (data["transaction_date"]
 ## Dashboard Page
 
 st.title("Coffee Sales Dashboard")
+
+col1, col2, col3 = st.columns(3)
+
+## Total Revenue Metrics
+total_revenue = data['total_revenue'].sum()
+col1.metric(label="Total Revenue", value=total_revenue)
+
+## Total Products Sales
+total_prod = data['transaction_qty'].sum()
+col2.metric(label="Total Product", value=total_prod)
+
+## Total Customers
+total_cust = data['transaction_id'].count()
+col3.metric(label="Total Customer", value=total_cust)
                     
