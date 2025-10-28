@@ -32,7 +32,7 @@ with st.sidebar:
 
 ## Link Filter to Data
 
-data = data[(data["transaction_date"] >= start_date) & (data["transaction_date"] <= end_date)]
+data = data[(data["transaction_date"] >= str(start_date)) & (data["transaction_date"] <= str(end_date))]
 
 ## Dashboard Page
 
