@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+from streamlit_dynamic_filters import DynamicFilters
 
 # Load Dataset
 data = pd.read_csv('coffee_shop_sales.csv')
@@ -32,7 +33,7 @@ with st.sidebar:
 
 ## Link Filter to Data
 
-data = data[(data["transaction_date"] >= str(start_date)) & (data["transaction_date"] <= str(end_date))]
+data = data[(data["transaction_date"] >= str(start_date)) & (data["transaction_date"] <= str(end_date) & (data['store_location'].isin(location)) & (data['product_category'].isin(product_cat))]
 
 ## Dashboard Page
 
