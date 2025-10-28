@@ -60,7 +60,7 @@ col1, col2 = st.columns(2)
 ### Sales Revenue Trend Over Time
 with col1:
   st.subheader('Sales Revenue Over Time')
-  fig, ax = plt.subplots(figsize=(20, 8))
+  fig, ax = plt.subplots(figsize=(20, 15))
   sns.lineplot(x='transaction_date',
                y='total_revenue',
                data=data,
