@@ -28,7 +28,7 @@ with st.sidebar:
 ## Location Filter
 with st.sidebar:
      st.sidebar.header("Location:")
-     option = st.multiselect(label="Choose Location", location)
+     option = st.multiselect(label="Choose Location", options=location)
 
 ## Link Filter to Data
 
