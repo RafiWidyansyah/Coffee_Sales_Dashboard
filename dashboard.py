@@ -29,4 +29,12 @@ with st.sidebar:
 with st.sidebar:
      st.sidebar.header("Location:")
      option = st.multiselect(label="Choose Location", location)
+
+## Link Filter to Data
+
+data = data[(data["transaction_date"] >= start_date) & (data["transaction_date"] <= end_date)]
+
+## Dashboard Page
+
+st.title("Coffee Sales Dashboard")
                     
