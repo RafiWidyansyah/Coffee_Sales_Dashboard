@@ -66,7 +66,6 @@ with col1:
                data=data,
                ax=ax)
 
-  plt.grid(True)
   plt.xlabel("Date")
   plt.ylabel("Sales Revenue")
 
