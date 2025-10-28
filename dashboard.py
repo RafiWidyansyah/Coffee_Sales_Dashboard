@@ -33,23 +33,41 @@ with st.sidebar:
 
 ## Link Filter to Data
 data = data[(data["transaction_date"] >= str(start_date)) & (data["transaction_date"] <= str(end_date))]
-data = data[(data["store_location"].isin(location))]
+##data = data[(data["store_location"].isin(location))]
 
 ## Dashboard Page
 
 st.title("Coffee Sales Dashboard")
 
+## KPI Metrics
 col1, col2, col3 = st.columns(3)
 
-## Total Revenue Metrics
+### Total Revenue Metrics
 total_revenue = data['total_revenue'].sum()
 col1.metric(label="Total Revenue", value=total_revenue)
 
-## Total Products Sales
+### Total Products Sales
 total_prod = data['transaction_qty'].sum()
 col2.metric(label="Total Product", value=total_prod)
 
-## Total Customers
+### Total Customers
 total_cust = data['transaction_id'].count()
 col3.metric(label="Total Customer", value=total_cust)
                     
+## Plot
+col1, col2 = st.columns(2)
+
+### Sales Revenue Trend Over Time
+with col1:
+  st.subheader('Sales Revenue Over Time')
+  fig, ax = plt.subplots(figsize=(10, 8))
+  sns.lineplot(x='transaction_date',
+               y='total_revenue',
+               data=data,
+               ax=ax)
+
+  plt.grid(True)
+  plt.xlabel("Date")
+  plt.ylabel("Sales Revenue")
+
+  st.pyplot(fig)
