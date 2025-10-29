@@ -49,7 +49,7 @@ col1, col2, col3 = st.columns(3)
 
 ### Total Revenue Metrics
 total_revenue = data['total_revenue'].sum()
-col1.metric(label="Total Revenue", value=total_revenue, f"${total_revenue:,.2f}")
+col1.metric(label="Total Revenue", f"${total_revenue:,.2f}")
 
 ### Total Products Sales
 total_prod = data['transaction_qty'].sum()
