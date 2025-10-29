@@ -63,7 +63,7 @@ col3.metric(label="Total Customer", value=total_cust)
 col1, col2 = st.columns(2)
 
 ## Total Revenue Over Month
-revenue_by_month = df.groupby(['transaction_month','transaction_day'])['total_revenue'].sum().reset_index()
+revenue_by_month = data.groupby(['transaction_month','transaction_day'])['total_revenue'].sum().reset_index()
 with col1:
   st.subheader('Total Revenue By Month')
 
