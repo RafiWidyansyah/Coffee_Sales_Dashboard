@@ -77,13 +77,17 @@ with col1:
   st.pyplot(fig)
 
 ### Total Revenue Over Time
-revenue_month = data.groupby(['transaction_month', 'transaction_day'])['total_revenue'].sum().reset_index()
+def revenue_by_month(data):
+    revenue_month = data.groupby(['transaction_month', 'transaction_day'])['total_revenue'].sum().reset_index()
+return rev_by_month_df
+
+rev_by_month = revenue_by_month(data)
 with col2:
   st.subheader('Total Customers Over Time')
   fig, ax = plt.subplots()
   sns.barplot(x='transaction_month', 
               y='total_revenue', 
-              data=revenue_month,
+              data=rev_by_month,
               ax=ax)
 
   plt.xlabel("Month")
@@ -91,3 +95,4 @@ with col2:
 
   st.pyplot(fig)
   
+
