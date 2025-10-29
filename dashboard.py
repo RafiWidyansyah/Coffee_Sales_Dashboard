@@ -65,7 +65,7 @@ col1, col2 = st.columns(2)
 ### Sales Revenue Trend Over Time
 with col1:
   st.subheader('Sales Revenue Over Time')
-  fig, ax = plt.subplots(figsize=(20, 15))
+  fig, ax = plt.subplots()
   sns.lineplot(x='transaction_date',
                y='total_revenue',
                data=data,
@@ -76,8 +76,18 @@ with col1:
 
   st.pyplot(fig)
 
-### Total Customers Over Time
+### Total Revenue Over Time
+revenue_month = data.groupby(['transaction_month', 'transaction_day'])['total_revenue'].sum().reset_index()
 with col2:
   st.subheader('Total Customers Over Time')
-  fig, ax = plt.subplots(figsize=(20, 15))
+  fig, ax = plt.subplots()
+  sns.barplot(x='transaction_month', 
+              y='total_revenue', 
+              data=revenue_month,
+              ax=ax)
+
+  plt.xlabel("Month")
+  plt.ylabel("Total Revenue (in USD)")
+
+  st.pyplot(fig)
   
