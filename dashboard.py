@@ -30,12 +30,12 @@ with st.sidebar:
 ## Location Filter
 with st.sidebar:
      st.sidebar.header("Location:")
-     loc = st.multiselect(label="Choose Location", options=location)
+     loc = st.multiselect(label="Choose Location", options=location, default=location)
 
 ## Product Category Filter
 with st.sidebar:
      st.sidebar.header("Product Category:")
-     cat = st.multiselect(label="Choose Category Product", options=product_cat)
+     cat = st.multiselect(label="Choose Category Product", options=product_cat, default=product_cat)
 
 ## Link Filter to Data
 data = data[(data["store_location"].isin(loc)) & (data["product_category"].isin(cat))]
@@ -75,3 +75,9 @@ with col1:
   plt.ylabel("Sales Revenue")
 
   st.pyplot(fig)
+
+### Total Customers Over Time
+with col2:
+  st.subheader('Total Customers Over Time')
+  fig, ax = plt.subplots(figsize=(20, 15))
+  
