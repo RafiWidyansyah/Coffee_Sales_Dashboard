@@ -72,7 +72,7 @@ with col1:
   sns.barplot(
     x='transaction_month',
     y='total_revenue',
-    data=rev_month_df,
+    data=revenue_by_month,
     color='tab:blue',
     ax=ax
   )
