@@ -21,19 +21,25 @@ product_cat = data['product_category'].unique()
 ## Date Filter
 with st.sidebar:
      st.sidebar.header("Date:")
-     start_date, end_date = st.date_input(label="Date Filter",
-                                          min_value=min_date,
-                                          max_value=max_date,
-                                          value=[min_date, max_date])
+     if "order_date" in data.columns:
+           start_date, end_date = st.date_input(label="Date Filter",
+                                                min_value=min_date,
+                                                max_value=max_date,
+                                                value=[min_date, max_date])
+           data = data[(data["transaction_date"] >= str(start_date)) & (data["transaction_date"] <= str(end_date))]
 
 ## Location Filter
 with st.sidebar:
      st.sidebar.header("Location:")
-     option = st.multiselect(label="Choose Location", options=location)
+     loc = st.multiselect(label="Choose Location", options=location)
+
+## Product Category Filter
+with st.sidebar:
+     st.sidebar.header("Product Category:")
+     cat = st.multiselect(label="Choose Category Product", options=product_cat)
 
 ## Link Filter to Data
-data = data[(data["transaction_date"] >= str(start_date)) & (data["transaction_date"] <= str(end_date))]
-##data = data[(data["store_location"].isin(location))]
+data = data[(data["store_location"].isin(loc)) & (data["product_category"].isin(cat))]
 
 ## Dashboard Page
 
