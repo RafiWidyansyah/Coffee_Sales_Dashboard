@@ -81,3 +81,23 @@ with col1:
   plt.ylabel("Total Revenue")
 
   st.pyplot(fig)
+
+## Total Revenue Over Location
+revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_index()
+with col2:
+  st.subheader('Total Revenue By Location')
+
+  fig, ax = plt.subplots(figsize=(16, 8))
+
+  sns.barplot(
+    x='store_location',
+    y='total_revenue',
+    data=revenue_by_loc,
+    color='tab:blue',
+    ax=ax
+  )
+
+  plt.xlabel("Location")
+  plt.ylabel("Total Revenue")
+
+  st.pyplot(fig)
