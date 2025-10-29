@@ -87,7 +87,7 @@ with col2:
   fig, ax = plt.subplots()
   sns.barplot(x='transaction_month', 
               y='total_revenue', 
-              data=rev_by_month,
+              data=rev_by_month_df,
               ax=ax)
 
   plt.xlabel("Month")
