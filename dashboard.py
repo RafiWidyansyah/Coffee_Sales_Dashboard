@@ -49,7 +49,7 @@ col1, col2, col3 = st.columns(3)
 
 ### Total Revenue Metrics
 total_revenue = data['total_revenue'].sum()
-col1.metric(label="Total Revenue", value=total_revenue)
+col1.metric(label="Total Revenue", value=total_revenue, f"${total_revenue:,.2f}")
 
 ### Total Products Sales
 total_prod = data['transaction_qty'].sum()
@@ -62,37 +62,5 @@ col3.metric(label="Total Customer", value=total_cust)
 ## Plot
 col1, col2 = st.columns(2)
 
-### Sales Revenue Trend Over Time
-with col1:
-  st.subheader('Sales Revenue Over Time')
-  fig, ax = plt.subplots()
-  sns.lineplot(x='transaction_date',
-               y='total_revenue',
-               data=data,
-               ax=ax)
-
-  plt.xlabel("Date")
-  plt.ylabel("Sales Revenue")
-
-  st.pyplot(fig)
-
-### Total Revenue Over Time
-def revenue_by_month(data):
-    revenue_month = data.groupby(['transaction_month', 'transaction_day'])['total_revenue'].sum().reset_index()
-    return rev_by_month_df
-
-rev_by_month_df = revenue_by_month(data)
-with col2:
-  st.subheader('Total Customers Over Time')
-  fig, ax = plt.subplots()
-  sns.barplot(x='transaction_month', 
-              y='total_revenue', 
-              data=rev_by_month_df,
-              ax=ax)
-
-  plt.xlabel("Month")
-  plt.ylabel("Total Revenue (in USD)")
-
-  st.pyplot(fig)
-  
+## Chart
 
