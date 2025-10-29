@@ -53,7 +53,7 @@ col1.metric(label="Total Revenue", value=total_revenue)
 
 ### Total Products Sales
 total_prod = data['transaction_qty'].sum()
-col2.metric(label="Total Product", value=total_prod)
+col2.metric(label="Total Product Sold", value=total_prod)
 
 ### Total Customers
 total_cust = data['transaction_id'].count()
