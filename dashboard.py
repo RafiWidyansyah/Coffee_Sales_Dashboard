@@ -22,11 +22,11 @@ product_cat = data['product_category'].unique()
 with st.sidebar:
      st.sidebar.header("Date:")
      if "order_date" in data.columns:
-           start_date, end_date = st.date_input(label="Date Filter",
-                                                min_value=min_date,
-                                                max_value=max_date,
-                                                value=[min_date, max_date])
-           data = data[(data["transaction_date"] >= start_date) & (data["transaction_date"] <= end_date)]
+         start_date, end_date = st.date_input(label="Date Filter",
+                                              min_value=min_date,
+                                              max_value=max_date,
+                                              value=[min_date, max_date])
+         data = data[(data["transaction_date"] >= pd.to_datetime(start_date)) & (data["transaction_date"] <= pd.to_datetime(end_date))]
 
 ## Location Filter
 with st.sidebar:
