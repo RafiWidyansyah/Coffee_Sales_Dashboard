@@ -79,7 +79,7 @@ with col1:
 ### Total Revenue Over Time
 def revenue_by_month(data):
     revenue_month = data.groupby(['transaction_month', 'transaction_day'])['total_revenue'].sum().reset_index()
-return rev_by_month_df
+    return rev_by_month_df
 
 rev_by_month = revenue_by_month(data)
 with col2:
