@@ -81,7 +81,7 @@ def revenue_by_month(data):
     revenue_month = data.groupby(['transaction_month', 'transaction_day'])['total_revenue'].sum().reset_index()
     return rev_by_month_df
 
-rev_by_month = revenue_by_month(data)
+rev_by_month_df = revenue_by_month(data)
 with col2:
   st.subheader('Total Customers Over Time')
   fig, ax = plt.subplots()
