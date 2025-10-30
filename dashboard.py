@@ -91,7 +91,7 @@ with col2:
 
   ax.pie(revenue_by_loc['total_revenue'],
          labels=revenue_by_loc['store_location'],
-         autopct='%1.1f%%'
+         autopct='%1.1f%%',
          color='tab:blue',
          ax=ax
   )
