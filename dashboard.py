@@ -93,7 +93,6 @@ with col2:
          labels=revenue_by_loc['store_location'],
          autopct='%1.1f%%',
          color='tab:blue',
-         ax=ax
   )
 
   plt.xlabel("Location")
