@@ -89,12 +89,11 @@ with col2:
 
   fig, ax = plt.subplots(figsize=(16, 8))
 
-  sns.barplot(
-    x='store_location',
-    y='total_revenue',
-    data=revenue_by_loc,
-    color='tab:blue',
-    ax=ax
+  ax.pie(revenue_by_loc['total_revenue'],
+         labels=revenue_by_loc['store_location'],
+         autopct='%1.1f%%'
+         color='tab:blue',
+         ax=ax
   )
 
   plt.xlabel("Location")
