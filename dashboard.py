@@ -96,7 +96,8 @@ with col2:
          labels=labels,
          autopct='%1.1f%%',
          color='tab:blue',
-         startangle=90
+         startangle=90,
+         ax=ax
   )
   ax.axis('equal')
 
