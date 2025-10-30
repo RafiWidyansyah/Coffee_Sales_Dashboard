@@ -60,7 +60,7 @@ total_cust = data['transaction_id'].count()
 col3.metric(label="Total Customer", value=total_cust)
                     
 ## Plot
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2) ## Row 1
 
 ## Total Revenue Over Month
 revenue_by_month = data.groupby(['transaction_month','transaction_day'])['total_revenue'].sum().reset_index()
@@ -69,7 +69,7 @@ with col1:
 
   fig, ax = plt.subplots(figsize=(16, 8))
 
-  sns.barplot(
+  sns.lineplot(
     x='transaction_month',
     y='total_revenue',
     data=revenue_by_month,
@@ -101,3 +101,27 @@ with col2:
   plt.ylabel("Total Revenue")
 
   st.pyplot(fig)
+
+## Row 2
+col1, col2 = st.columns(2)
+
+## Total Revenue By Product Category
+revenue_by_cat = data.groupby('product_category')['total_revenue'].sum().reset_index().sort_value(ascending=False)
+with col1:
+  st.subheader("Total Revenue By Product Category")
+
+  fig, ax = plt.subplots(16, 8))
+
+  sns.barplot(
+    x='product_category',
+    y='total_revenue',
+    data=revenue_by_cat,
+    color='tab:blue',
+    ax=ax
+  )
+
+  plt.xlabel("Product Category")
+  plt.ylabel("Total Revenue")
+
+  st.pyplot(fig)
+
