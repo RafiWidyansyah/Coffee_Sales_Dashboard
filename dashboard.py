@@ -100,9 +100,6 @@ with col2:
   )
   ax.axis('equal')
 
-  plt.xlabel("Location")
-  plt.ylabel("Total Revenue")
-
   st.pyplot(fig)
 
 ## Row 2
