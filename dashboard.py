@@ -87,8 +87,8 @@ revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_i
 with col2:
   st.subheader('Total Revenue By Location')
 
-  labels = revenue_by_loc['store_location']
-  sizes = revenue_by_loc['total_revenue']
+  labels = revenue_by_loc['store_location'].values
+  sizes = revenue_by_loc['total_revenue'].values
 
   fig, ax = plt.subplots(figsize=(16, 8))
 
