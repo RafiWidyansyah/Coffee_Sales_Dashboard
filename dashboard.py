@@ -104,7 +104,7 @@ col1, col2 = st.columns(2)
 
 ## Total Revenue By Product Category
 revenue_by_cat = data.groupby('product_category')['total_revenue'].sum().reset_index()
-with col3:
+with col1:
   st.subheader("Total Revenue By Product Category")
 
   fig, ax = plt.subplots(figsize=(16, 8))
