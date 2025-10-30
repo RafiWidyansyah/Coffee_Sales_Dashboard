@@ -90,7 +90,7 @@ with col2:
   labels = revenue_by_loc['store_location'].values
   sizes = revenue_by_loc['total_revenue'].values
 
-  fig, ax = plt.subplots(figsize=(16, 8))
+  fig, ax = plt.subplots(figsize=(12, 8))
 
   ax.pie(sizes,
          labels=labels,
