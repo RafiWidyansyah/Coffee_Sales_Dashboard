@@ -87,23 +87,20 @@ revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_i
 with col2:
   st.subheader('Total Revenue By Location')
 
-  labels = revenue_by_loc['store_location'].values
-  sizes = revenue_by_loc['total_revenue'].values
-
   fig, ax = plt.subplots(figsize=(12, 8))
 
-  ax.pie(sizes,
-         labels=labels,
-         autopct='%1.1f%%',
-         startangle=90,
-         ax=ax
+  sns.barplot(
+    x='store_location',
+    y='total_revenue',
+    data=revenue_by_loc,
+    color='tab:blue',
+    ax=ax
   )
-  ax.axis('equal')
 
   st.pyplot(fig)
 
 ## Row 2
-col3, col4 = st.columns(2)
+col1, col2 = st.columns(2)
 
 ## Total Revenue By Product Category
 revenue_by_cat = data.groupby('product_category')['total_revenue'].sum().reset_index()
