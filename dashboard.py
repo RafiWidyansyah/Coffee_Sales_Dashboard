@@ -87,7 +87,7 @@ revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_i
 with col2:
   st.subheader('Total Revenue By Location')
 
-  fig, ax = plt.subplots(figsize=(12, 8))
+  fig, ax = plt.subplots(figsize=(16, 8))
 
   sns.barplot(
     x='store_location',
