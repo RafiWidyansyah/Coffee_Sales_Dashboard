@@ -95,7 +95,6 @@ with col2:
   ax.pie(sizes,
          labels=labels,
          autopct='%1.1f%%',
-         color='tab:blue',
          startangle=90,
          ax=ax
   )
