@@ -110,7 +110,7 @@ revenue_by_cat = data.groupby('product_category')['total_revenue'].sum().reset_i
 with col1:
   st.subheader("Total Revenue By Product Category")
 
-  fig, ax = plt.subplots(16, 8))
+  fig, ax = plt.subplots(figsize=(16, 8))
 
   sns.barplot(
     x='product_category',
