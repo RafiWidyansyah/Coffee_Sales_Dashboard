@@ -87,13 +87,18 @@ revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_i
 with col2:
   st.subheader('Total Revenue By Location')
 
+  labels = revenue_by_loc['store_location']
+  sizes = revenue_by_loc['total_revenue']
+
   fig, ax = plt.subplots(figsize=(16, 8))
 
-  ax.pie(revenue_by_loc['total_revenue'],
-         labels=revenue_by_loc['store_location'],
+  ax.pie(sizes,
+         labels=labels,
          autopct='%1.1f%%',
          color='tab:blue',
+         startangle=90
   )
+  ax.axis('equal')
 
   plt.xlabel("Location")
   plt.ylabel("Total Revenue")
