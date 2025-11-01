@@ -83,7 +83,7 @@ with col1:
   st.pyplot(fig)
 
 ## Total Revenue Over Location
-revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_index()
+revenue_by_loc = data.groupby(['store_location'])['total_revenue'].sum().reset_index().sort_values(by='total_revenue', ascending=False)
 with col2:
   st.subheader('Total Revenue By Location')
 
@@ -125,7 +125,7 @@ with col1:
 ## Top 5 Coffee Product By Revenue
 coffee = data[data['product_category'] == 'Coffee']
 coffee_rev = data.groupby('product_type')['total_revenue'].sum().reset_index()
-coffee_rev = coffee_rev.sort_values('product_type', ascending=False).head(5)
+coffee_rev = coffee_rev.sort_values('total_revenue', ascending=False).head(5)
 
 with col2:
   st.subheader('Top 5 Coffee Product By Revenue')
