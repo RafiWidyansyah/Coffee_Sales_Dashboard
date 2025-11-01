@@ -122,3 +122,25 @@ with col1:
 
   st.pyplot(fig)
 
+## Top 5 Coffee Product By Revenue
+coffee = data[data['product_category'] == 'Coffee']
+coffee_rev = data.groupby('product_type')['total_revenue'].sum().reset_index()
+coffee_rev = coffee_rev.sort_values('product_type', ascending=False).head(5)
+
+with col2:
+  st.subheader('Top 5 Coffee Product By Revenue')
+
+  fig, ax = plt.subplots(figsize=(16, 8))
+
+  sns.barplot(
+    x='product_type',
+    y='total_revenue',
+    data=coffee_rev,
+    color='tab:blue',
+    ax=ax
+  )
+
+  plt.xlabel("Product Type")
+  plt.ylabel("Total Revenue")
+
+  st.pyplot(fig)
