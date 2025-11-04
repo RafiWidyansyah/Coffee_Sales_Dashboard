@@ -48,7 +48,7 @@ st.title("Coffee Sales Dashboard")
 col1, col2, col3 = st.columns(3)
 
 ### Total Revenue Metrics
-total_revenue = data['total_revenue'].sum()
+total_revenue = data['total_revenue'].sum().round(2)
 col1.metric(label="Total Revenue", value=total_revenue)
 
 ### Total Products Sales
